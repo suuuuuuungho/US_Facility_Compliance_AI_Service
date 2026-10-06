@@ -333,13 +333,14 @@ join common_dataset_current c
 
 | 묶음 | Method | 어디서 | Cadence |
 |---|---|---|---|
-| eCFR | API 호출 | [eCFR API](https://www.ecfr.gov/developers/documentation/api/v1) `full/{date}/title-40.xml?part=63` | 수동 |
-| FR | API 호출 | [FR API](https://www.federalregister.gov/developers/documentation/api/v1) `conditions[cfr][title]=40&conditions[cfr][part]=63` (발행일 1994-01-11 ~ 2026-07-06) | 수동 |
-| ECHO | 파일 다운로드 | [ECHO 다운로드](https://echo.epa.gov/tools/data-downloads) `ICIS-AIR_downloads.zip`, `pipeline_caa_downloads.zip` | 수동 |
+| eCFR | API 호출 | [eCFR API](https://www.ecfr.gov/developers/documentation/api/v1) `full/{date}/title-40.xml?part=63` | 매일 03:17 UTC (자동) |
+| FR | API 호출 | [FR API](https://www.federalregister.gov/developers/documentation/api/v1) `conditions[cfr][title]=40&conditions[cfr][part]=63` (발행일 1994-01-11 ~ 2026-07-06) | 매일 03:17 UTC (자동) |
+| ECHO | 파일 다운로드 | [ECHO 다운로드](https://echo.epa.gov/tools/data-downloads) `ICIS-AIR_downloads.zip`, `pipeline_caa_downloads.zip` | 매주 화요일 05:17 UTC (자동) |
 | ADI + CAA | 목록 수집 + PDF 다운로드 | EPA ADI(Applicability Determination Index) 목록 + CAA Dashboard 목록, 회신 PDF | 수동 |
 
 - 파이프라인 코드: `[2] db/pipeline/<번호>_<자료>/` (`*_fetch` 받기 → `*_parse` 읽기 → `*_load` 넣기 → `*_release` 공개)
-- 자동 일정(cron) **없음**. 사람이 돌림.
+- 자동 일정: eCFR·FR은 `.github/workflows/db-refresh.yml`, ECHO는 `.github/workflows/echo-refresh.yml`.
+- RAG 색인 재생성은 사람이 실행.
 
 ### Data Integration (데이터가 흘러가는 길)
 
@@ -481,7 +482,6 @@ order by 1;
 | 1 | `fr_diff` 표가 DB에 **없음** | `[2] db/migrations/SUU-230_fr_diff.sql` 파일은 있는데 적용이 안 됨 |
 | 2 | `rag_chunk`의 `create table` 파일이 **없음** | DB에는 있음. 새로 만들 때 똑같이 재현하기 어려움 |
 | 3 | 빈 표 9개 | `ecfr_asset`, `ecfr_reference`, `ecfr_history`, `ecfr_correction`, `adi_document_relation`, `common_change_log`, `common_ingest_checkpoint`는 아직 안 채움. `echo_source_row`, `common_ingest_error`는 비어 있는 게 정상 |
-| 4 | 자동 갱신 없음 | 원본(eCFR은 매일)이 바뀌어도 사람이 돌려야 새 release가 생김 |
 | 5 | 삭제 규칙 없음 | `rag_answer_log`에 사용자 질문이 계속 쌓임 |
 
 ---
