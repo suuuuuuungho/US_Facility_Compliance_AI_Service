@@ -7,7 +7,7 @@
 - 창(window): 규칙을 적용할 순위 범위. 창 밖은 그대로 둔다.
 - 표 뒤로(demote_tables): 창 안의 appendix-Table 조문을 맨 뒤로(서로 순서는 유지).
 - Subpart 우선(subpart_top): 1~5등에 나온 Subpart 상위 n개 + Subpart A 조문을 앞으로, 나머지는 뒤로. 0이면 끔.
-채점은 `[1] docs/1) project/1_Project_full.md` "RAG 검색 품질 개선 과정" 절 채점표(Hit@5·Hit@20·nDCG@10·Recall@20)와 같고, 창 20 + 규칙 없음 = 원래 결과.
+채점은 `[1] docs/1) project/1_full/1_Project_full.md` "RAG 검색 품질 개선 과정" 절 채점표(Hit@5·Hit@20·nDCG@10·Recall@20)와 같고, 창 20 + 규칙 없음 = 원래 결과.
 """
 from __future__ import annotations
 

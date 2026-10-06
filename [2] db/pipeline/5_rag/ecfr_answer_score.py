@@ -1,6 +1,6 @@
 """Score one applicability-criteria answer against an eval case (SUU-146).
 
-Four metrics, defined in ``[1] docs/1) project/1_Project_full.md`` "RAG 답변 품질 개선 과정" 절:
+Four metrics, defined in ``[1] docs/1) project/1_full/1_Project_full.md`` "RAG 답변 품질 개선 과정" 절:
 subpart hit, citation recall and citation groundedness are $0 rules; the
 criteria score is a 0/1/2 judgement by an LLM judge against the EPA ``notes``.
 This module only builds the judge request and parses its reply; calling the

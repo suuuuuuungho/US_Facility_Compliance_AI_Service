@@ -24,6 +24,31 @@ class Index:
 _CACHE: dict[str, Index] = {}
 
 
+def indexed_release_id(client) -> str:
+    """Return the newest published eCFR release with embedded chunks."""
+    releases = (
+        client.table("common_dataset_release")
+        .select("release_id")
+        .eq("dataset", "ecfr")
+        .eq("status", "published")
+        .order("published_at", desc=True)
+        .execute()
+        .data
+    )
+    for release in releases:
+        result = (
+            client.table("rag_chunk")
+            .select("chunk_key", count="exact")
+            .eq("release_id", release["release_id"])
+            .eq("index_status", "embedded")
+            .limit(1)
+            .execute()
+        )
+        if result.count:
+            return release["release_id"]
+    raise RuntimeError("no published eCFR release has embedded chunks")
+
+
 def fetch_chunks(client, release_id: str) -> list[dict]:
     rows, start, page = [], 0, 500
     columns = "chunk_key,node_key,context_text,chunk_text"

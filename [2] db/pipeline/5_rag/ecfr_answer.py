@@ -1,7 +1,7 @@
 """Turn the top retrieved sections into an applicability-criteria answer (SUU-147).
 
 The LLM gets the factory's question plus the full text of the top sections and
-returns the JSON defined in ``[1] docs/1) project/1_Project_full.md`` "RAG 답변 품질 개선 과정" 절:
+returns the JSON defined in ``[1] docs/1) project/1_full/1_Project_full.md`` "RAG 답변 품질 개선 과정" 절:
 candidate subparts, the criteria that decide applicability (each with citations
 to the given sections only) and a checklist for the plant. No verdict.
 """

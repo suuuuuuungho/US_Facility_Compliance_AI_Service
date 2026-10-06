@@ -56,7 +56,7 @@ Strong success criteria let you loop independently. Weak criteria ("make it work
 # 애매모호 할 때, 스스로 판단하지 않고 나에게 묻고 진행한다. 
 
 # 항상 이 파일을 읽고 시작한다. 이 프로젝트를 요약한 파일이다.  
-`C:\Users\Admin\Desktop\US Factory Compliance Service\[1] docs\1) project\1_Project_full.md`
+`C:\Users\Admin\Desktop\US Factory Compliance Service\[1] docs\1) project\1_full\1_Project_full.md`
 
 # 이 프로젝트는 항상 이 workflow 순서대로 진행한다.
 `C:\Users\Admin\Desktop\US Factory Compliance Service\[1] docs\4) workflow\1_workflow.md`

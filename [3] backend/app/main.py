@@ -24,7 +24,7 @@ from ecfr_llm_rerank import call_openai_rerank_api
 from ecfr_search import build_rerank_request
 
 from app.answer import answer_question, section_text
-from app.index import load_index
+from app.index import indexed_release_id, load_index
 from app.letters import LETTER_RELEASE_ID, load_letter_meta, similar_letters
 from app.log import answer_log_row, save_answer_log
 
@@ -36,7 +36,7 @@ STATE: dict = {"index": None, "client": None, "letters": None, "letter_meta": No
 def _load():
     from supabase import create_client
     client = create_client(os.environ["SUPABASE_URL"], os.environ["SUPABASE_SECRET_KEY"])
-    release_id = client.table("common_dataset_current").select("release_id").eq("dataset", "ecfr").execute().data[0]["release_id"]
+    release_id = indexed_release_id(client)
     STATE["client"] = client
     STATE["index"] = load_index(client, release_id)  # 마지막에 넣는다. index가 차면 "준비됨"
     # SUU-257: 서한 색인은 /ask 준비를 늦추지 않게 그 뒤에

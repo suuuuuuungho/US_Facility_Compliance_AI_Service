@@ -6,7 +6,7 @@
 from pathlib import Path
 
 DOCS = Path(__file__).parents[2] / "[1] docs"
-FULL = DOCS / "1) project" / "1_Project_full.md"
+FULL = DOCS / "1) project" / "1_full" / "1_Project_full.md"
 SPEC = DOCS / "2) db" / "0_Data Specification_v1.md"
 
 

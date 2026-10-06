@@ -7,7 +7,7 @@ argument-hint: "만들고 싶은 기능 한두 줄"
 
 ## 먼저 읽기
 
-- `[1] docs/1) project/1_Project_full.md` — 이 서비스가 무엇인지
+- `[1] docs/1) project/1_full/1_Project_full.md` — 이 서비스가 무엇인지
 - `[1] docs/4) workflow/2_rules.md` — 제목 규칙(1번), 티켓 크기(2번), 설계 파일 위치(12번)
 
 ## 순서

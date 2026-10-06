@@ -78,7 +78,7 @@
 
 ## 4. 결론
 
-1. **baseline = 0.264**. 문서 `[1] docs/1) project/1_Project_full.md` "RAG 검색 품질 개선 과정" 절 점수판 첫 줄. 지금 최고(hybrid + 규칙 시뮬 0.631)는 baseline의 2.4배.
+1. **baseline = 0.264**. 문서 `[1] docs/1) project/1_full/1_Project_full.md` "RAG 검색 품질 개선 과정" 절 점수판 첫 줄. 지금 최고(hybrid + 규칙 시뮬 0.631)는 baseline의 2.4배.
 2. 컨텍스트는 bge 기준 +0.03(동점 경계). Kanon 기준 컨텍스트 효과는 재지 않았다(Kanon 재임베딩 ≈ $2, 필요하면 후속).
 3. 임베더 선택이 컨텍스트보다 훨씬 중요하다. Kanon 2 유지.
 
@@ -329,7 +329,7 @@ reranker → hybrid가 31건 동일한 이유: 리랭커는 후보 150개 중 **
 
 ## SUU-147 답변 1차 측정 baseline (2026-09-19, v2 102건)
 
-기본 조합(hybrid + 규칙 + LLM 리랭크) 저장 결과의 상위 5조문 전문 → gpt-5-mini → 판정 기준표 JSON → SUU-146 채점기. 채점표 정의는 `[1] docs/1) project/1_Project_full.md` "RAG 답변 품질 개선 과정" 절.
+기본 조합(hybrid + 규칙 + LLM 리랭크) 저장 결과의 상위 5조문 전문 → gpt-5-mini → 판정 기준표 JSON → SUU-146 채점기. 채점표 정의는 `[1] docs/1) project/1_full/1_Project_full.md` "RAG 답변 품질 개선 과정" 절.
 
 | Subpart 적중 | 인용 Recall | 인용 근거율 | 판정 기준 점수(0~2) | 실패 | 비용 |
 |---|---|---|---|---|---|
@@ -355,7 +355,7 @@ reranker → hybrid가 31건 동일한 이유: 리랭커는 후보 150개 중 **
 | format | 2 | adi-M070010, adi-M110015 |
 | answer | 5 | dashboard-eaton-auburn-2023-09-07, adi-M170004, dashboard-lhoist-north-america-montevallo-plant-2021-04-09, adi-M080034, adi-M150036 |
 
-- 7/10이 프롬프트 쪽(subpart 칸에 조문 번호, 정답 Subpart 둘 중 하나만) → A-5 1순위 프롬프트, 2순위 조문 수 확대. 자세한 표는 `[1] docs/1) project/1_Project_full.md` "RAG 답변 품질 개선 과정" 절.
+- 7/10이 프롬프트 쪽(subpart 칸에 조문 번호, 정답 Subpart 둘 중 하나만) → A-5 1순위 프롬프트, 2순위 조문 수 확대. 자세한 표는 `[1] docs/1) project/1_full/1_Project_full.md` "RAG 답변 품질 개선 과정" 절.
 
 ## SUU-150 프롬프트 v2: subpart 코드만·적용 가능한 subpart 다 적기 (2026-09-19, v2 102건)
 

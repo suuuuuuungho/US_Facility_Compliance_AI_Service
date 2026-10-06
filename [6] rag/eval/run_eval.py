@@ -9,7 +9,7 @@
   python "[6] rag/eval/run_eval.py" --config hybrid --llm gpt-5-mini   # 규칙 뒤 상위 20조문을 OpenAI로 다시 줄 세움(SUU-136) → run_id 끝에 _llm_<model>
   python "[6] rag/eval/run_eval.py" --run-id X      # run_id 직접 지정
 
-규칙: `[1] docs/1) project/1_Project_full.md` "RAG 검색 품질 개선 과정" 절. 채점표(SUU-117): Hit@5, Hit@20, nDCG@10, Recall@20 (+MRR 비교용). 질문 임베딩은 rag_eval_query_embeddings[_v2].json에 캐시한다.
+규칙: `[1] docs/1) project/1_full/1_Project_full.md` "RAG 검색 품질 개선 과정" 절. 채점표(SUU-117): Hit@5, Hit@20, nDCG@10, Recall@20 (+MRR 비교용). 질문 임베딩은 rag_eval_query_embeddings[_v2].json에 캐시한다.
 failure_code/failure_note는 실행 후 Claude가 손으로 채운다.
 """
 from __future__ import annotations

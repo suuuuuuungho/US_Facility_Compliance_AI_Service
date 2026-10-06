@@ -47,6 +47,8 @@ def test_lifespan_opens_port_before_index_is_loaded(main, monkeypatch):
     monkeypatch.setenv("SUPABASE_URL", "http://fake")
     monkeypatch.setenv("SUPABASE_SECRET_KEY", "fake")
     monkeypatch.setattr("supabase.create_client", lambda url, key: FakeSupabase())
+    # SUU-9001: release 고르기는 test_indexed_release.py가 본다. 여기서는 포트·스레드 순서만
+    monkeypatch.setattr(main, "indexed_release_id", lambda client: "rel-7")
     gate, loaded = threading.Event(), threading.Event()
 
     def slow_load_index(client, release_id):
