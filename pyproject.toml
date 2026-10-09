@@ -1,5 +1,5 @@
 [tool.pytest.ini_options]
 # "[3] backend" 처럼 대괄호·공백 있는 폴더 안의 코드를 import 할 수 있게 한다
-pythonpath = ["[2] db", "[2] db/contracts", "[2] db/pipeline/1_eCFR", "[2] db/pipeline/2_Federal Register", "[2] db/pipeline/3_ECHO", "[2] db/pipeline/4_ADI+CAA", "[2] db/pipeline/5_rag", "[3] backend", "[1] docs/4) workflow/report"]
+pythonpath = ["[2] db", "[2] db/contracts", "[2] db/pipeline/1_eCFR", "[2] db/pipeline/2_Federal Register", "[2] db/pipeline/3_ECHO", "[2] db/pipeline/4_ADI+CAA", "[2] db/pipeline/5_rag", "[3] backend"]
 # 폴더마다 tests/ 이름이 같아도 충돌하지 않게 한다
 addopts = "--import-mode=importlib"
